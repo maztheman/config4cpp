@@ -78,7 +78,7 @@ public:
 			Configuration::SourceType	sourceType,
 			const char *				source,
 			UidIdentifierProcessor *	uidIdentifierProcessor)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual ~ConfigLex();
 
 private:

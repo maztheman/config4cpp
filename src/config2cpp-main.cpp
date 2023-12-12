@@ -123,7 +123,7 @@ calculateSchema(
 	const StringVector &		recipeUserTypes,
 	const StringVector &		wildcardedNamesAndTypes,
 	const StringVector &		recipeIgnoreRules,
-	StringVector &				schema) throw(ConfigurationException)
+	StringVector &				schema) DYNAMIC_THROW_EXPRESSION
 {
 	int							i;
 	int							len;
@@ -184,7 +184,7 @@ checkForUnmatchedPatterns(
 	const Configuration *		cfg,
 	const StringVector &		namesList,
 	const StringVector &		wildcardedNamesAndTypes,
-	StringVector &				unmatchedPatterns) throw(ConfigurationException)
+	StringVector &				unmatchedPatterns) DYNAMIC_THROW_EXPRESSION
 {
 	int							i;
 	int							len;

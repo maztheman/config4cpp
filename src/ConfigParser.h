@@ -76,7 +76,7 @@ public:
 		const char *				sourceDescription,
 		ConfigurationImpl *			config,
 		bool						ifExistsIsSpecified = false)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	~ConfigParser();
 
 	//--------

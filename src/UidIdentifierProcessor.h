@@ -32,6 +32,13 @@
 #include <config4cpp/StringBuffer.h>
 #include <config4cpp/ConfigurationException.h>
 
+#if __cplusplus < 201703L
+#define CONFIG_THROW_EXPRESSION throw(ConfigurationException) = 0
+#define CONFIG_THROW_EXPRESSION_IMPL throw(ConfigurationException)
+#else
+#define CONFIG_THROW_EXPRESSION
+#define CONFIG_THROW_EXPRESSION_IMPL
+#endif
 
 namespace CONFIG4CPP_NAMESPACE {
 
@@ -44,11 +51,11 @@ public:
 	UidIdentifierProcessor();
 	virtual ~UidIdentifierProcessor();
 
-	virtual void expand(StringBuffer & spelling) throw (ConfigurationException);
+	virtual void expand(StringBuffer & spelling) CONFIG_THROW_EXPRESSION_IMPL;
 
 	virtual const char * unexpand(
 				const char *		spelling,
-				StringBuffer &		buf) const throw (ConfigurationException);
+				StringBuffer &		buf) const CONFIG_THROW_EXPRESSION_IMPL;
 
 private:
 	//--------
@@ -62,10 +69,10 @@ private:
 	//--------
 	// Helper functions
 	//--------
-	void expandOne(StringBuffer & spelling) throw (ConfigurationException);
+	void expandOne(StringBuffer & spelling) CONFIG_THROW_EXPRESSION_IMPL;
 	const char * unexpandOne(
 				const char *		spelling,
-				StringBuffer &		buf) const throw (ConfigurationException);
+				StringBuffer &		buf) const CONFIG_THROW_EXPRESSION_IMPL;
 
 	//--------
 	// The following are not implemented

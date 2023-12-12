@@ -51,6 +51,15 @@ private:
 };
 
 
+#if __cplusplus < 201703L
+#define FOO_THROW_EXPRESSION throw(FooConfigurationException) = 0
+#define FOO_THROW_EXPRESSION_IMPL throw(FooConfigurationException)
+#else
+#define FOO_THROW_EXPRESSION
+#define FOO_THROW_EXPRESSION_IMPL
+#endif
+
+
 class FooConfiguration
 {
 public:
@@ -61,7 +70,7 @@ public:
 			const char *	cfgInput,
 			const char *	cfgScope = "",
 			const char *	secInput = "",
-			const char *	secScope = "") throw (FooConfigurationException);
+			const char *	secScope = "") FOO_THROW_EXPRESSION_IMPL;
 	//--------
 	// Public operations
 	//--------

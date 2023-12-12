@@ -25,7 +25,6 @@
 #ifndef FOO_CONFIGURATION_H_
 #define FOO_CONFIGURATION_H_
 
-
 class FooConfigurationException
 {
 public:
@@ -48,6 +47,11 @@ private:
 	FooConfigurationException operator=(const FooConfigurationException &);
 };
 
+#if __cplusplus < 201703L
+#define FOO_THROW_EXPRESSION throw(FooConfigurationException)
+#else
+#define FOO_THROW_EXPRESSION
+#endif
 
 class FooConfiguration
 {
@@ -59,7 +63,7 @@ public:
 			const char *	cfgInput,
 			const char *	cfgScope = "",
 			const char *	secInput = "",
-			const char *	secScope = "") throw (FooConfigurationException);
+			const char *	secScope = "") FOO_THROW_EXPRESSION;
 
 	//--------
 	// Acccessors for configuration variables.

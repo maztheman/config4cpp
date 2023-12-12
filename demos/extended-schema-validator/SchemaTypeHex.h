@@ -33,6 +33,13 @@ using CONFIG4CPP_NAMESPACE::SchemaType;
 using CONFIG4CPP_NAMESPACE::StringBuffer;
 using CONFIG4CPP_NAMESPACE::StringVector;
 
+#if __cplusplus < 201703L
+#define DYNAMIC_THROW_EXPRESSION throw(ConfigurationException) = 0
+#define DYNAMIC_THROW_EXPRESSION throw(ConfigurationException)
+#else
+#define DYNAMIC_THROW_EXPRESSION
+#define DYNAMIC_THROW_EXPRESSION
+#endif
 
 class SchemaTypeHex : public SchemaType
 {
@@ -45,19 +52,19 @@ public:
 	static int lookupHex(
 		const Configuration *	cfg,
 		const char *			scope,
-		const char *			localName) throw(ConfigurationException);
+		const char *			localName) DYNAMIC_THROW_EXPRESSION;
 
 	static int lookupHex(
 		const Configuration *	cfg,
 		const char *			scope,
 		const char *			localName,
-		int						defaultVal) throw(ConfigurationException);
+		int						defaultVal) DYNAMIC_THROW_EXPRESSION;
 	static int stringToHex(
 		const Configuration *	cfg,
 		const char *			scope,
 		const char *			localName,
 		const char *			str,
-		const char *			typeName = "hex") throw(ConfigurationException);
+		const char *			typeName = "hex") DYNAMIC_THROW_EXPRESSION;
 
 	static bool isHex(const char * str);
 
@@ -67,7 +74,7 @@ protected:
 		const Configuration *	cfg,
 		const char *			typeName,
 		const StringVector &	typeArgs,
-		const char *			rule) const throw(ConfigurationException);
+		const char *			rule) const DYNAMIC_THROW_EXPRESSION;
 
 	virtual bool isA(
 		const SchemaValidator *	sv,

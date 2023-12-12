@@ -31,11 +31,19 @@
 using CONFIG4CPP_NAMESPACE::ConfigurationException;
 using CONFIG4CPP_NAMESPACE::SchemaValidator;
 
+#if __cplusplus < 201703L
+#define CONFIG_THROW_EXPRESSION throw(ConfigurationException) = 0
+#define CONFIG_THROW_EXPRESSION_IMPL throw(ConfigurationException)
+#else
+#define CONFIG_THROW_EXPRESSION
+#define CONFIG_THROW_EXPRESSION_IMPL
+#endif
+
 
 class ExtendedSchemaValidator : public SchemaValidator
 {
 public:
-	ExtendedSchemaValidator() throw(ConfigurationException)
+	ExtendedSchemaValidator() CONFIG_THROW_EXPRESSION_IMPL
 	{
 		registerType(new SchemaTypeHex());
 	}

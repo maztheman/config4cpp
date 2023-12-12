@@ -97,7 +97,7 @@ FooConfiguration::parse(
 	const char *		cfgInput,
 	const char *		scope,
 	const char *		secInput,
-	const char *		secScope) throw (FooConfigurationException)
+	const char *		secScope) FOO_THROW_EXPRESSION
 {
 	int							i;
 	StringBuffer				localName;

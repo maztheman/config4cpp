@@ -48,6 +48,11 @@ private:
 	FooConfigurationException operator=(const FooConfigurationException &);
 };
 
+#if __cplusplus < 201703L
+#define FOO_THROW_EXPRESSION throw(FooConfigurationException)
+#else
+#define FOO_THROW_EXPRESSION
+#endif
 
 class FooConfiguration
 {
@@ -59,28 +64,28 @@ public:
 	~FooConfiguration();
 
 	void parse(const char * cfgSource, const char * scope = "")
-											throw (FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 
 	//--------
 	// Lookup-style functions.
 	//--------
 	const char * lookupString(const char * name) const
-											throw (FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 	void lookupList(
 			const char *	name,
 			const char **&	array,
-			int &			arraySize) const throw (FooConfigurationException);
+			int &			arraySize) const FOO_THROW_EXPRESSION;
 
 	virtual int lookupInt(const char * name) const
-											throw(FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 	virtual float lookupFloat(const char * name) const
-											throw(FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 	virtual bool lookupBoolean(const char * name) const
-											throw(FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 	virtual int lookupDurationMilliseconds(const char * name) const
-											throw(FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 	virtual int lookupDurationSeconds(const char * name) const
-											throw(FooConfigurationException);
+											FOO_THROW_EXPRESSION;
 
 private:
 	//--------

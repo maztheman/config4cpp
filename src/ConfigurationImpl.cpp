@@ -94,7 +94,7 @@ ConfigurationImpl::setFallbackConfiguration(
 	Configuration::SourceType	sourceType,
 	const char *				source,
 	const char *				sourceDescription)
-												throw(ConfigurationException)
+												DYNAMIC_THROW_EXPRESSION
 {
 	Configuration *				cfg;
 	StringBuffer				msg;
@@ -129,7 +129,7 @@ void
 ConfigurationImpl::setSecurityConfiguration(
 	Configuration *			cfg,
 	bool					takeOwnership,
-	const char *			scope) throw (ConfigurationException)
+	const char *			scope) DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			dummyList;
 	StringBuffer			msg;
@@ -154,7 +154,7 @@ ConfigurationImpl::setSecurityConfiguration(
 void
 ConfigurationImpl::setSecurityConfiguration(
 	const char *			cfgInput,
-	const char *			scope) throw (ConfigurationException)
+	const char *			scope) DYNAMIC_THROW_EXPRESSION
 {
 	Configuration *			cfg;
 	StringVector			dummyList;
@@ -204,7 +204,7 @@ void
 ConfigurationImpl::parse(
 	Configuration::SourceType	sourceType,
 	const char *				source,
-	const char *				sourceDescription) throw(ConfigurationException)
+	const char *				sourceDescription) DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer				trustedCmdLine;
 	StringBuffer				msg;
@@ -382,7 +382,7 @@ void
 ConfigurationImpl::insertString(
 	const char *			scope,
 	const char *			localName,
-	const char *			str) throw(ConfigurationException)
+	const char *			str) DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			vec;
 	int						len;
@@ -414,7 +414,7 @@ ConfigurationImpl::insertString(
 void
 ConfigurationImpl::ensureScopeExists(
 	const char *			scope,
-	const char *			localName) throw(ConfigurationException)
+	const char *			localName) DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer			fullyScopedName;
 	ConfigScope *			dummyScope;
@@ -438,7 +438,7 @@ ConfigurationImpl::insertList(
 	const char *			scope,
 	const char *			localName,
 	const char **			array,
-	int						arraySize) throw(ConfigurationException)
+	int						arraySize) DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			vec;
 	int						len;
@@ -471,7 +471,7 @@ void
 ConfigurationImpl::insertList(
 	const char *		scope,
 	const char *		localName,
-	const char **		nullTerminatedArray) throw(ConfigurationException)
+	const char **		nullTerminatedArray) DYNAMIC_THROW_EXPRESSION
 {
 	int					size;
 	
@@ -496,7 +496,7 @@ void
 ConfigurationImpl::insertList(
 	const char *			scope,
 	const char *			localName,
-	const StringVector &	vec) throw(ConfigurationException)
+	const StringVector &	vec) DYNAMIC_THROW_EXPRESSION
 {
 	const char **			array;
 	int						size;
@@ -518,7 +518,7 @@ ConfigurationImpl::insertList(
 void
 ConfigurationImpl::insertList(
 	const char *				name,
-	const StringVector &		list) throw(ConfigurationException)
+	const StringVector &		list) DYNAMIC_THROW_EXPRESSION
 {
 	StringVector				vec;
 	int							len;
@@ -545,7 +545,7 @@ ConfigurationImpl::insertList(
 
 void
 ConfigurationImpl::remove(const char * scope, const char * localName)
-					throw(ConfigurationException)
+					DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer			fullyScopedName;
 	StringBuffer			msg;
@@ -702,7 +702,7 @@ ConfigurationImpl::dump(
 	StringBuffer &			buf,
 	bool					wantExpandedUidNames,
 	const char *			scope,
-	const char *			localName) const throw(ConfigurationException)
+	const char *			localName) const DYNAMIC_THROW_EXPRESSION
 {
 	ConfigItem *			item;
 	StringBuffer			msg;
@@ -737,7 +737,7 @@ ConfigurationImpl::listFullyScopedNames(
 	const char *			localName,
 	Type					typeMask,
 	bool					recursive,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			filterPatterns;
 
@@ -753,7 +753,7 @@ ConfigurationImpl::listFullyScopedNames(
 	Type					typeMask,
 	bool					recursive,
 	const char *			filterPattern,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			filterPatterns;
 
@@ -771,7 +771,7 @@ ConfigurationImpl::listFullyScopedNames(
 	Type					typeMask,
 	bool					recursive,
 	const StringVector &	filterPatterns,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer			fullyScopedName;
 	StringBuffer			msg;
@@ -809,7 +809,7 @@ ConfigurationImpl::listLocallyScopedNames(
 	Type					typeMask,
 	bool					recursive,
 	const char *			filterPattern,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			filterPatterns;
 
@@ -825,7 +825,7 @@ ConfigurationImpl::listLocallyScopedNames(
 	const char *			localName,
 	Type					typeMask,
 	bool					recursive,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringVector			filterPatterns;
 
@@ -841,7 +841,7 @@ ConfigurationImpl::listLocallyScopedNames(
 	Type					typeMask,
 	bool					recursive,
 	const StringVector &	filterPatterns,
-	StringVector &			names) const throw(ConfigurationException)
+	StringVector &			names) const DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer			fullyScopedName;
 	StringBuffer			msg;
@@ -869,7 +869,7 @@ const char *
 ConfigurationImpl::lookupString(
 	const char *			scope,
 	const char *			localName,
-	const char *			defaultVal) const throw(ConfigurationException)
+	const char *			defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -903,7 +903,7 @@ ConfigurationImpl::lookupString(
 const char *
 ConfigurationImpl::lookupString(
 	const char *			scope,
-	const char *			localName) const throw(ConfigurationException)
+	const char *			localName) const DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -943,7 +943,7 @@ ConfigurationImpl::lookupList(
 	int &					arraySize,
 	const char **			defaultArray,
 	int						defaultArraySize) const
-												throw(ConfigurationException)
+												DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -982,7 +982,7 @@ ConfigurationImpl::lookupList(
 	const char *			scope,
 	const char *			localName,
 	const char **&			array,
-	int &					arraySize) const throw(ConfigurationException)
+	int &					arraySize) const DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -1017,7 +1017,7 @@ ConfigurationImpl::lookupList(
 	const char *			scope,
 	const char *			localName,
 	StringVector &			list,
-	const StringVector &	defaultList) const throw(ConfigurationException)
+	const StringVector &	defaultList) const DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -1057,7 +1057,7 @@ void
 ConfigurationImpl::lookupList(
 	const char *			scope,
 	const char *			localName,
-	StringVector &			list) const throw(ConfigurationException)
+	StringVector &			list) const DYNAMIC_THROW_EXPRESSION
 {
 	Configuration::Type	 	type;
 	StringBuffer			msg;
@@ -1102,7 +1102,7 @@ ConfigurationImpl::lookupEnum(
 	const char *				typeName,
 	const EnumNameAndValue *	enumInfo,
 	int 						numEnums,
-	const char *				defaultVal) const throw(ConfigurationException)
+	const char *				defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *				strValue;
 	StringBuffer				msg;
@@ -1141,7 +1141,7 @@ ConfigurationImpl::lookupEnum(
 	const char *				typeName,
 	const EnumNameAndValue *	enumInfo,
 	int 						numEnums,
-	int							defaultVal) const throw(ConfigurationException)
+	int							defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *				strValue;
 	StringBuffer				msg;
@@ -1183,7 +1183,7 @@ ConfigurationImpl::lookupEnum(
 	const char *				localName,
 	const char *				typeName,
 	const EnumNameAndValue *	enumInfo,
-	int 						numEnums) const throw(ConfigurationException)
+	int 						numEnums) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *				strValue;
 	StringBuffer				msg;
@@ -1263,7 +1263,7 @@ bool
 ConfigurationImpl::lookupBoolean(
 	const char *			scope,
 	const char *			localName,
-	bool					defaultVal) const throw(ConfigurationException)
+	bool					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	int						intVal;
 	const char *			defaultStrVal;
@@ -1283,7 +1283,7 @@ ConfigurationImpl::lookupBoolean(
 bool
 ConfigurationImpl::lookupBoolean(
 	const char *			scope,
-	const char *			localName) const throw(ConfigurationException)
+	const char *			localName) const DYNAMIC_THROW_EXPRESSION
 {
 	int	intVal;
 
@@ -1297,7 +1297,7 @@ int
 ConfigurationImpl::lookupInt(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -1314,7 +1314,7 @@ ConfigurationImpl::lookupInt(
 int
 ConfigurationImpl::lookupInt(
 	const char *			scope,
-	const char *			localName) const throw(ConfigurationException)
+	const char *			localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *			strValue;
 	int						result;
@@ -1343,7 +1343,7 @@ int
 ConfigurationImpl::stringToInt(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	int					result;
 	char				dummy;
@@ -1386,7 +1386,7 @@ float
 ConfigurationImpl::stringToFloat(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	float				result;
 	char				dummy;
@@ -1446,7 +1446,7 @@ ConfigurationImpl::stringToEnum(
 	const char *				typeName,
 	const char *				str,
 	const EnumNameAndValue *	enumInfo,
-	int 						numEnums) const throw(ConfigurationException)
+	int 						numEnums) const DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer				msg;
 	StringBuffer				fullyScopedName;
@@ -1478,7 +1478,7 @@ bool
 ConfigurationImpl::stringToBoolean(
 	const char *			scope,
 	const char *			localName,
-	const char *			str) const throw(ConfigurationException)
+	const char *			str) const DYNAMIC_THROW_EXPRESSION
 {
 	int				result;
 
@@ -1497,7 +1497,7 @@ ConfigurationImpl::lookupFloatWithUnits(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	float &				floatResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		str;
 
@@ -1518,7 +1518,7 @@ ConfigurationImpl::lookupFloatWithUnits(
 	float &				floatResult,
 	const char *&		unitsResult,
 	float				defaultFloat,
-	const char *		defaultUnits) const throw(ConfigurationException)
+	const char *		defaultUnits) const DYNAMIC_THROW_EXPRESSION
 {
 	if (type(scope, localName) == CFG_NO_VALUE) {
 		floatResult = defaultFloat;
@@ -1580,7 +1580,7 @@ ConfigurationImpl::lookupUnitsWithFloat(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	float &				floatResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		str;
 
@@ -1601,7 +1601,7 @@ ConfigurationImpl::lookupUnitsWithFloat(
 	float &				floatResult,
 	const char *&		unitsResult,
 	float				defaultFloat,
-	const char *		defaultUnits) const throw(ConfigurationException)
+	const char *		defaultUnits) const DYNAMIC_THROW_EXPRESSION
 {
 	if (type(scope, localName) == CFG_NO_VALUE) {
 		floatResult = defaultFloat;
@@ -1669,7 +1669,7 @@ ConfigurationImpl::stringToIntWithUnits(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	int &				intResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	char *				unitSpelling;
 	int					i;
@@ -1740,7 +1740,7 @@ ConfigurationImpl::lookupIntWithUnits(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	int &				intResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		str;
 
@@ -1761,7 +1761,7 @@ ConfigurationImpl::lookupIntWithUnits(
 	int &				intResult,
 	const char *&		unitsResult,
 	int					defaultInt,
-	const char *		defaultUnits) const throw(ConfigurationException)
+	const char *		defaultUnits) const DYNAMIC_THROW_EXPRESSION
 {
 	if (type(scope, localName) == CFG_NO_VALUE) {
 		intResult = defaultInt;
@@ -1824,7 +1824,7 @@ ConfigurationImpl::stringToUnitsWithInt(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	int &				intResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	char *				formatStr;
 	char *				unitSpelling;
@@ -1890,7 +1890,7 @@ ConfigurationImpl::lookupUnitsWithInt(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	int &				intResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		str;
 
@@ -1911,7 +1911,7 @@ ConfigurationImpl::lookupUnitsWithInt(
 	int &				intResult,
 	const char *&		unitsResult,
 	int					defaultInt,
-	const char *		defaultUnits) const throw(ConfigurationException)
+	const char *		defaultUnits) const DYNAMIC_THROW_EXPRESSION
 {
 	if (type(scope, localName) == CFG_NO_VALUE) {
 		intResult = defaultInt;
@@ -2174,7 +2174,7 @@ ConfigurationImpl::stringToUnitsWithFloat(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	float &				floatResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	char *				formatStr;
 	char *				unitSpelling;
@@ -2241,7 +2241,7 @@ ConfigurationImpl::stringToFloatWithUnits(
 	const char **		allowedUnits,
 	int					allowedUnitsSize,
 	float &				floatResult,
-	const char *&		unitsResult) const throw(ConfigurationException)
+	const char *&		unitsResult) const DYNAMIC_THROW_EXPRESSION
 {
 	char *				unitSpelling;
 	int					i;
@@ -2307,7 +2307,7 @@ int
 ConfigurationImpl::stringToDurationMicroseconds(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	float				floatVal;
 	const char *		units;
@@ -2355,7 +2355,7 @@ int
 ConfigurationImpl::stringToDurationMilliseconds(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	float				floatVal;
 	const char *		units;
@@ -2404,7 +2404,7 @@ int
 ConfigurationImpl::stringToDurationSeconds(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	float				floatVal;
 	const char *		units;
@@ -2452,7 +2452,7 @@ int
 ConfigurationImpl::lookupDurationMicroseconds(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[128]; // big enough
 	const char *		strValue;
@@ -2473,7 +2473,7 @@ ConfigurationImpl::lookupDurationMicroseconds(
 int
 ConfigurationImpl::lookupDurationMicroseconds(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2489,7 +2489,7 @@ int
 ConfigurationImpl::lookupDurationMilliseconds(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[128]; // big enough
 	const char *		strValue;
@@ -2510,7 +2510,7 @@ ConfigurationImpl::lookupDurationMilliseconds(
 int
 ConfigurationImpl::lookupDurationMilliseconds(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2526,7 +2526,7 @@ int
 ConfigurationImpl::lookupDurationSeconds(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[128]; // big enough
 	const char *		strValue;
@@ -2547,7 +2547,7 @@ ConfigurationImpl::lookupDurationSeconds(
 int
 ConfigurationImpl::lookupDurationSeconds(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2567,7 +2567,7 @@ ConfigurationImpl::stringToMemorySizeGeneric(
 	const char *			allowedUnits[],
 	const char *			scope,
 	const char *			localName,
-	const char *			str) const throw(ConfigurationException)
+	const char *			str) const DYNAMIC_THROW_EXPRESSION
 {
 	float					floatVal;
 	const char *			units;
@@ -2596,7 +2596,7 @@ int
 ConfigurationImpl::stringToMemorySizeBytes(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	static const char * allowedUnits[]= {"byte", "bytes", "KB", "MB", "GB"};
 	return stringToMemorySizeGeneric("memorySizeBytes",
@@ -2610,7 +2610,7 @@ int
 ConfigurationImpl::stringToMemorySizeKB(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	static const char * allowedUnits[]= {"KB", "MB", "GB", "TB"};
 	return stringToMemorySizeGeneric("memorySizeKB", MemorySizeKBUnitsInfo, 4,
@@ -2623,7 +2623,7 @@ int
 ConfigurationImpl::stringToMemorySizeMB(
 	const char *		scope,
 	const char *		localName,
-	const char *		str) const throw(ConfigurationException)
+	const char *		str) const DYNAMIC_THROW_EXPRESSION
 {
 	static const char * allowedUnits[]= {"MB", "GB", "TB", "PB"};
 	return stringToMemorySizeGeneric("memorySizeMB", MemorySizeMBUnitsInfo, 4,
@@ -2636,7 +2636,7 @@ int
 ConfigurationImpl::lookupMemorySizeBytes(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[64]; // big enough
 	const char *		strValue;
@@ -2653,7 +2653,7 @@ ConfigurationImpl::lookupMemorySizeBytes(
 int
 ConfigurationImpl::lookupMemorySizeBytes(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2669,7 +2669,7 @@ int
 ConfigurationImpl::lookupMemorySizeKB(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[64]; // big enough
 	const char *		strValue;
@@ -2686,7 +2686,7 @@ ConfigurationImpl::lookupMemorySizeKB(
 int
 ConfigurationImpl::lookupMemorySizeKB(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2702,7 +2702,7 @@ int
 ConfigurationImpl::lookupMemorySizeMB(
 	const char *		scope,
 	const char *		localName,
-	int					defaultVal) const throw(ConfigurationException)
+	int					defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	char				defaultStrValue[64]; // big enough
 	const char *		strValue;
@@ -2719,7 +2719,7 @@ ConfigurationImpl::lookupMemorySizeMB(
 int
 ConfigurationImpl::lookupMemorySizeMB(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	int					result;
@@ -2735,7 +2735,7 @@ float
 ConfigurationImpl::lookupFloat(
 	const char *		scope,
 	const char *		localName,
-	float				defaultVal) const throw(ConfigurationException)
+	float				defaultVal) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	float				result;
@@ -2752,7 +2752,7 @@ ConfigurationImpl::lookupFloat(
 float
 ConfigurationImpl::lookupFloat(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	const char *		strValue;
 	float				result;
@@ -2767,7 +2767,7 @@ ConfigurationImpl::lookupFloat(
 void
 ConfigurationImpl::lookupScope(
 	const char *		scope,
-	const char *		localName) const throw(ConfigurationException)
+	const char *		localName) const DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer		msg;
 	StringBuffer		fullyScopedName;
@@ -2820,7 +2820,7 @@ ConfigurationImpl::popIncludedFilename(const char * fileName)
 void
 ConfigurationImpl::checkForCircularIncludes(
 	const char *	file,
-	int				includeLineNum) throw (ConfigurationException)
+	int				includeLineNum) DYNAMIC_THROW_EXPRESSION
 {
 	int				size;
 	int				i;
@@ -2855,7 +2855,7 @@ ConfigurationImpl::uidEquals(const char * s1, const char * s2) const
 
 void
 ConfigurationImpl::expandUid(StringBuffer & spelling)
-												throw(ConfigurationException)
+												DYNAMIC_THROW_EXPRESSION
 {
 	m_uidIdentifierProcessor.expand(spelling);
 }
@@ -2873,7 +2873,7 @@ ConfigurationImpl::unexpandUid(const char * spelling, StringBuffer & buf) const
 void
 ConfigurationImpl::ensureScopeExists(
 	const char *		name,
-	ConfigScope *&		scope) throw(ConfigurationException)
+	ConfigScope *&		scope) DYNAMIC_THROW_EXPRESSION
 {
 	StringVector		vec;
 
@@ -2888,7 +2888,7 @@ ConfigurationImpl::ensureScopeExists(
 	const StringVector &	vec,
 	int						firstIndex,
 	int						lastIndex,
-	ConfigScope *&			scope) throw(ConfigurationException)
+	ConfigScope *&			scope) DYNAMIC_THROW_EXPRESSION
 {
 	int						i;
 	int						j;

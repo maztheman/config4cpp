@@ -44,13 +44,13 @@ public:
 	UidIdentifierDummyProcessor() { }
 	virtual ~UidIdentifierDummyProcessor() { }
 
-	virtual void expand(StringBuffer & spelling) throw (ConfigurationException)
+	virtual void expand(StringBuffer & spelling) DYNAMIC_THROW_EXPRESSION
 	{
 		StringBuffer dummy = spelling;
 		UidIdentifierProcessor::expand(dummy);
 	}
 	virtual const char * unexpand(const char * spelling, StringBuffer &)
-										const throw (ConfigurationException)
+										const DYNAMIC_THROW_EXPRESSION
 	{
 		StringBuffer dummyBuf = spelling;
 		(void)UidIdentifierProcessor::unexpand(spelling, dummyBuf);

@@ -53,7 +53,7 @@ public:
 	// Public API
 	//--------
 	void parse(const char ** schema, int schemaSize)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 private:
 	//--------
@@ -62,18 +62,18 @@ private:
 	void parseIdRule(
 			const char *			rule,
 			SchemaIdRuleInfo *		SchemaIdRuleInfo)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	void parseIgnoreRule(
 			const char *			rule,
 			SchemaIgnoreRuleInfo *	SchemaIgnoreRuleInfo)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
-	void parseUserTypeDef(const char * str) throw(ConfigurationException);
+	void parseUserTypeDef(const char * str) DYNAMIC_THROW_EXPRESSION;
 
 	void accept(
 			short					sym,
 			const char *			rule,
-			const char *			msg) throw(ConfigurationException);
+			const char *			msg) DYNAMIC_THROW_EXPRESSION;
 
 	//--------
 	// Instance variables

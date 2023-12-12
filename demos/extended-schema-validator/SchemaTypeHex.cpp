@@ -35,7 +35,7 @@ SchemaTypeHex::checkRule(
 	const Configuration *		cfg,
 	const char *				typeName,
 	const StringVector &		typeArgs,
-	const char *				rule) const throw(ConfigurationException)
+	const char *				rule) const DYNAMIC_THROW_EXPRESSION
 {
 	StringBuffer				msg;
 	int							len;
@@ -102,7 +102,7 @@ int
 SchemaTypeHex::lookupHex(
 	const Configuration *	cfg,
 	const char *			scope,
-	const char *			localName) throw(ConfigurationException)
+	const char *			localName) DYNAMIC_THROW_EXPRESSION
 {
 	const char *			str;
 
@@ -117,7 +117,7 @@ SchemaTypeHex::lookupHex(
 	const Configuration *	cfg,
 	const char *			scope,
 	const char *			localName,
-	int						defaultVal) throw(ConfigurationException)
+	int						defaultVal) DYNAMIC_THROW_EXPRESSION
 {
 	const char *			str;
 
@@ -136,7 +136,7 @@ SchemaTypeHex::stringToHex(
 	const char *			scope,
 	const char *			localName,
 	const char *			str,
-	const char *			typeName) throw(ConfigurationException)
+	const char *			typeName) DYNAMIC_THROW_EXPRESSION
 {
 	unsigned int			value;
 	int						status;

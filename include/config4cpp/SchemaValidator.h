@@ -64,15 +64,15 @@ public:
 	inline void wantDiagnostics(bool value);
 	inline bool wantDiagnostics();
 	void parseSchema(const char ** schema, int schemaSize)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION ;
 	void parseSchema(const char ** nullTerminatedSchema)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	inline void validate(
 		const Configuration *	cfg,
 		const char *			scope,
 		const char *			localName,
 		ForceMode				forceMode = DO_NOT_FORCE) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	void validate(
 		const Configuration *	cfg,
 		const char *			scope,
@@ -80,12 +80,12 @@ public:
 		bool					recurseIntoSubscopes,
 		Configuration::Type		typeMask,
 		ForceMode				forceMode = DO_NOT_FORCE) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 protected:
 	//--------
 	// Operations that can be called by a subclass.
 	//--------
-	void registerType(SchemaType * type) throw(ConfigurationException);
+	void registerType(SchemaType * type) DYNAMIC_THROW_EXPRESSION;
 
 private:
 	friend int compareSchemaIdRuleInfo(const void *, const void *);
@@ -104,18 +104,18 @@ private:
 		const char *			localName,
 		const StringVector &	itemNames,
 		ForceMode				forceMode) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	void validateForceMode(
 		const Configuration *	cfg,
 		const char *			scope,
 		const char *			localName,
 		ForceMode				forceMode) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	void validateRequiredUidEntry(
 		const Configuration *	cfg,
 		const char *			fullScope,
 		SchemaIdRuleInfo *		idRule) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	void callCheckRule(
 		const SchemaType *		target,
@@ -163,7 +163,7 @@ private:
 		const char *			typeName,
 		Configuration::Type		cfgType,
 		const char *			baseTypeName,
-		const StringVector &	baseTypeArgs) throw(ConfigurationException);
+		const StringVector &	baseTypeArgs) DYNAMIC_THROW_EXPRESSION;
 
 	SchemaIdRuleInfo * findIdRule(const char * name) const;
 	bool shouldIgnore(
@@ -206,7 +206,7 @@ SchemaValidator::validate(
 	const Configuration *	cfg,
 	const char *			scope,
 	const char *			localName,
-	ForceMode				forceMode) const throw(ConfigurationException)
+	ForceMode				forceMode) const DYNAMIC_THROW_EXPRESSION
 {
 	validate(cfg, scope, localName, true, Configuration::CFG_SCOPE_AND_VARS,
 			 forceMode);

@@ -54,7 +54,7 @@ protected:
 		const Configuration *	cfg,
 		const char *			typeName,
 		const StringVector &	typeArgs,
-		const char *			rule) const throw(ConfigurationException) = 0;
+		const char *			rule) const DYNAMIC_THROW_EXPRESSION = 0;
 
 	virtual void validate(
 		const SchemaValidator *	sv,
@@ -65,7 +65,7 @@ protected:
 		const char *			origTypeName,
 		const StringVector &	typeArgs,
 		int						indentLevel) const
-											throw(ConfigurationException);
+											DYNAMIC_THROW_EXPRESSION;
 
 	virtual bool isA(
 		const SchemaValidator *	sv,
@@ -88,7 +88,7 @@ protected:
 		const char *			origTypeName,
 		const StringVector &	typeArgs,
 		int						indentLevel) const
-											throw(ConfigurationException);
+											DYNAMIC_THROW_EXPRESSION;
 
 	bool callIsA(
 		const SchemaType *		target,

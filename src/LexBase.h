@@ -111,8 +111,8 @@ protected:
 		Configuration::SourceType     sourceType,
 		const char *			      source,
 		UidIdentifierProcessor *      uidIdentifierProcessor)
-												throw(ConfigurationException);
-	LexBase(const char * str) throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
+	LexBase(const char * str) DYNAMIC_THROW_EXPRESSION;
 	virtual ~LexBase();
 
 	//--------
@@ -140,7 +140,7 @@ private:
 			short &			funcType,
 			short &			symbol);
 
-	void nextChar() throw(ConfigurationException);
+	void nextChar() DYNAMIC_THROW_EXPRESSION;
 	char nextByte();
 	void consumeString(LexToken & token);
 	void consumeBlockString(LexToken &token);

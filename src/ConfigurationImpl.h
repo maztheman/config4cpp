@@ -68,18 +68,18 @@ public:
 					Configuration::SourceType		sourceType,
 					const char *					source,
 					const char *					sourceDescription = "")
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual const Configuration * getFallbackConfiguration();
 
 	virtual void setSecurityConfiguration(
 					Configuration *					cfg,
 					bool							takeOwnership,
 					const char *					scope = "")
-												throw (ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void setSecurityConfiguration(
 					const char *					cfgInput,
 					const char *					scope = "")
-												throw (ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void getSecurityConfiguration(
 					const Configuration *&		cfg,
 					const char *&				scope);
@@ -88,7 +88,7 @@ public:
 					Configuration::SourceType	sourceType,
 					const char *				source,
 					const char *				sourceDescription = "")
-											throw(ConfigurationException);
+											DYNAMIC_THROW_EXPRESSION;
 	virtual const char * fileName() const;
 	virtual Type type(const char* scope, const char* localName) const;
 
@@ -98,7 +98,7 @@ public:
 					Type					typeMask,
 					bool					recursive,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void listFullyScopedNames(
 					const char *			scope,
 					const char *			localName,
@@ -106,7 +106,7 @@ public:
 					bool					recursive,
 					const char *			filterPattern,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void listFullyScopedNames(
 					const char *			scope,
 					const char *			localName,
@@ -114,7 +114,7 @@ public:
 					bool					recursive,
 					const StringVector &	filterPatterns,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void listLocallyScopedNames(
 					const char *			scope,
@@ -122,7 +122,7 @@ public:
 					Type					typeMask,
 					bool					recursive,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void listLocallyScopedNames(
 					const char *			scope,
 					const char *			localName,
@@ -130,7 +130,7 @@ public:
 					bool					recursive,
 					const char *			filterPattern,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void	listLocallyScopedNames(
 					const char *			scope,
 					const char *			localName,
@@ -138,11 +138,11 @@ public:
 					bool					recursive,
 					const StringVector &	filterPatterns,
 					StringVector &			names) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual bool uidEquals(const char * s1, const char * s2) const;
 	virtual void expandUid(StringBuffer & spelling)
-						throw(ConfigurationException);
+						DYNAMIC_THROW_EXPRESSION;
 
 	virtual const char * unexpandUid(
 					const char *			spelling,
@@ -156,7 +156,7 @@ public:
 					bool					wantExpandedUidNames,
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual bool isBoolean(const char * str) const;
 	virtual bool isInt(const char * str) const;
@@ -193,47 +193,47 @@ public:
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToInt(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual float stringToFloat(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToDurationSeconds(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToDurationMicroseconds(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToDurationMilliseconds(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToMemorySizeBytes(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToMemorySizeKB(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToMemorySizeMB(
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int stringToEnum(
 					const char *					scope,
 					const char *					localName,
@@ -241,7 +241,7 @@ public:
 					const char *					str,
 					const EnumNameAndValue *		enumInfo,
 					int 							numEnums) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void stringToFloatWithUnits(
 					const char *			scope,
 					const char *			localName,
@@ -251,7 +251,7 @@ public:
 					int						allowedUnitsSize,
 					float &					floatResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void stringToUnitsWithFloat(
 					const char *			scope,
 					const char *			localName,
@@ -261,7 +261,7 @@ public:
 					int						allowedUnitsSize,
 					float &					floatResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void stringToIntWithUnits(
 					const char *			scope,
 					const char *			localName,
@@ -271,7 +271,7 @@ public:
 					int						allowedUnitsSize,
 					int &					intResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void stringToUnitsWithInt(
 					const char *			scope,
 					const char *			localName,
@@ -281,17 +281,17 @@ public:
 					int						allowedUnitsSize,
 					int &					intResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual const char * lookupString(
 					const char *			scope,
 					const char *			localName,
 					const char *			defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual const char * lookupString(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupList(
 					const char *			scope,
@@ -300,45 +300,45 @@ public:
 					int &					arraySize,
 					const char **			defaultArray,
 					int						defaultArraySize) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupList(
 					const char *			scope,
 					const char *			localName,
 					const char **&			array,
 					int &					arraySize) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupList(
 					const char *			scope,
 					const char *			localName,
 					StringVector &			list,
 					const StringVector &	defaultList) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupList(
 					const char *			scope,
 					const char *			localName,
 					StringVector &			list) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual int lookupInt(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupInt(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual float lookupFloat(
 					const char *			scope,
 					const char *			localName,
 					float					defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual float lookupFloat(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual int lookupEnum(
 					const char *					scope,
@@ -347,7 +347,7 @@ public:
 					const EnumNameAndValue *		enumInfo,
 					int 							numEnums,
 					const char *					defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupEnum(
 					const char *					scope,
 					const char *					localName,
@@ -355,24 +355,24 @@ public:
 					const EnumNameAndValue *		enumInfo,
 					int 							numEnums,
 					int								defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupEnum(
 					const char *					scope,
 					const char *					localName,
 					const char *					typeName,
 					const EnumNameAndValue *		enumInfo,
 					int 							numEnums) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual bool lookupBoolean(
 					const char *			scope,
 					const char *			localName,
 					bool					defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual bool lookupBoolean(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 
 	virtual void lookupFloatWithUnits(
@@ -383,7 +383,7 @@ public:
 					int						allowedUnitsSize,
 					float &					floatResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupFloatWithUnits(
 					const char *			scope,
 					const char *			localName,
@@ -394,7 +394,7 @@ public:
 					const char *&			unitsResult,
 					float					defaultFloat,
 					const char *			defaultUnits) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupUnitsWithFloat(
 					const char *			scope,
@@ -404,7 +404,7 @@ public:
 					int						allowedUnitsSize,
 					float &					floatResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupUnitsWithFloat(
 					const char *			scope,
 					const char *			localName,
@@ -415,7 +415,7 @@ public:
 					const char *&			unitsResult,
 					float					defaultFloat,
 					const char *			defaultUnits) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupIntWithUnits(
 					const char *			scope,
@@ -425,7 +425,7 @@ public:
 					int						allowedUnitsSize,
 					int &					intResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupIntWithUnits(
 					const char *			scope,
 					const char *			localName,
@@ -436,7 +436,7 @@ public:
 					const char *&			unitsResult,
 					int						defaultInt,
 					const char *			defaultUnits) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupUnitsWithInt(
 					const char *			scope,
@@ -446,7 +446,7 @@ public:
 					int						allowedUnitsSize,
 					int &					intResult,
 					const char *&			unitsResult) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void lookupUnitsWithInt(
 					const char *			scope,
 					const char *			localName,
@@ -457,69 +457,69 @@ public:
 					const char *&			unitsResult,
 					int						defaultInt,
 					const char *			defaultUnits) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 
 	virtual int lookupDurationMicroseconds(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupDurationMicroseconds(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupDurationMilliseconds(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupDurationMilliseconds(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupDurationSeconds(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupDurationSeconds(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual int lookupMemorySizeBytes(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupMemorySizeBytes(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupMemorySizeKB(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupMemorySizeKB(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupMemorySizeMB(
 					const char *			scope,
 					const char *			localName,
 					int						defaultVal) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual int lookupMemorySizeMB(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void lookupScope(
 					const char *			scope,
 					const char *			localName) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	//--------
 	// Update operations.
@@ -528,34 +528,34 @@ public:
 					const char *			scope,
 					const char *			localName,
 					const char *			strValue)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void insertList(
 					const char *			scope,
 					const char *			localName,
 					const char **			array,
 					int						arraySize)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void insertList(
 					const char *			scope,
 					const char *			localName,
 					const char **			nullTerminatedArray)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void insertList(
 					const char *			scope,
 					const char *			localName,
 					const StringVector &	vec)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	virtual void ensureScopeExists(
 					const char *			scope,
 					const char *			localName)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void remove(
 					const char *			scope,
 					const char *			localName)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	virtual void empty();
 
 
@@ -568,7 +568,7 @@ protected:
 	virtual void insertList(
 					const char *			name,
 					const StringVector &	list)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 	inline ConfigScope * rootScope();
 	inline ConfigScope * getCurrScope();
 	inline void	 setCurrScope(ConfigScope * scope);
@@ -576,14 +576,14 @@ protected:
 	void ensureScopeExists(
 					const char *			name,
 					ConfigScope *&			scope)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	void ensureScopeExists(
 					const StringVector &	vec,
 					int						firstIndex,
 					int						lastIndex,
 					ConfigScope *&			scope)
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	bool isExecAllowed(
 					const char *			cmdLine,
@@ -626,7 +626,7 @@ protected:
 	void checkForCircularIncludes(
 					const char *			fileName,
 					int						includeLineNum)
-												throw (ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 	int stringToMemorySizeGeneric(
 					const char *			typeName,
@@ -636,7 +636,7 @@ protected:
 					const char *			scope,
 					const char *			localName,
 					const char *			str) const
-												throw(ConfigurationException);
+												DYNAMIC_THROW_EXPRESSION;
 
 protected:
 	//--------

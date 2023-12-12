@@ -84,7 +84,7 @@ ConfigLex::ConfigLex(
 	Configuration::SourceType	sourceType,
 	const char *				source,
 	UidIdentifierProcessor *	uidIdentifierProcessor)
-												throw(ConfigurationException)
+												DYNAMIC_THROW_EXPRESSION
 	: LexBase(sourceType, source, uidIdentifierProcessor)
 {
 	m_keywordInfoArray     = keywordInfoArray;

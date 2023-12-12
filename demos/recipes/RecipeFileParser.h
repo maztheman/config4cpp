@@ -30,6 +30,13 @@
 
 using namespace CONFIG4CPP_NAMESPACE;
 
+#if __cplusplus < 201703L
+#define DYNAMIC_THROW_EXPRESSION_RECIPE throw(RecipeFileParserException) = 0
+#define DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL throw(RecipeFileParserException)
+#else
+#define DYNAMIC_THROW_EXPRESSION_RECIPE
+#define DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL
+#endif
 
 class RecipeFileParser
 {
@@ -42,7 +49,7 @@ public:
 	// that all the recipes have their required details.
 	//--------
 	void parse(const char * recipeFilename, const char * scope)
-											throw (RecipeFileParserException);
+											DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL;
 
 	//--------
 	// Operations to query information about recipes
@@ -50,15 +57,15 @@ public:
 	void		listRecipeScopes(StringVector & vec);
 
 	const char * getRecipeName(const char * recipeScope)
-										throw (RecipeFileParserException);
+										DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL;
 
 	void		getRecipeIngredients(
 					const char *		recipeScope,
-					StringVector &		vec) throw (RecipeFileParserException);
+					StringVector &		vec) DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL;
 
 	void		getRecipeSteps(
 					const char *		recipeScope,
-					StringVector &		vec) throw (RecipeFileParserException);
+					StringVector &		vec) DYNAMIC_THROW_EXPRESSION_RECIPE_IMPL;
 
 private:
 	//--------
